@@ -8,6 +8,10 @@ The New Relic piVPN Plugin enables monitoring piVPN, and it reports the followin
 * Average of bytes sent
 * Average of bytes received
 
+### Note
+
+This plugin is based on KangaCoders' newrelic_openvpn_agent - https://rubygems.org/gems/newrelic_openvpn_agent, v.0.0.1
+
 ### Requirements
 
 The piVPN monitoring Plugin for New Relic requires the following:
