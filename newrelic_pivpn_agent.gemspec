@@ -14,7 +14,7 @@ Gem::Specification.new do |s|
   ## the sub! line in the Rakefile
   s.name              = 'newrelic_pivpn_agent'
   s.version           = '0.0.3'
-  s.date              = '2017-11-13'
+  s.date              = '2017-11-14'
   # s.rubyforge_project = 'newrelic_pivpn_agent'
 
   ## Make sure your summary is short. The description may be as long
@@ -27,9 +27,9 @@ This is the New Relic plugin for monitoring OpenVPN developed by KangaCoders Ltd
   ## List the primary authors. If there are a bunch of authors, it's probably
   ## better to set the email to an email list or something. If you don't have
   ## a custom homepage, consider using your GitHub URL or the like.
-  s.authors  = ["Kai De Sutter"]
-  s.email    = 'kdesutter@kangacoders.com'
-  s.homepage = 'http://www.kangacoders.com/'
+  s.authors  = ["Dexterke, SECRET LABORATORIES"]
+  s.email    = 'dexterkexnet@yahoo.com'
+  s.homepage = 'https://github.com/dexterke/newrelic_pivpn_agent'
 
   ## This gets added to the $LOAD_PATH so that 'lib/NAME.rb' can be required as
   ## require 'NAME.rb' or'/lib/NAME/file.rb' can be as require 'NAME/file.rb'
