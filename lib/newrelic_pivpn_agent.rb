@@ -13,7 +13,7 @@ module NewRelicOpenvpnAgent
     agent_guid "home.secretnet.secretlab.pivpn"
     agent_version "0.0.2"
     agent_config_options :openvpn_status_path
-    agent_human_labels("OpenVPN Agent") { ident }
+    agent_human_labels("piVPN Agent") { ident }
 
     attr_reader :ident
 

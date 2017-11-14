@@ -13,15 +13,15 @@ Gem::Specification.new do |s|
   ## If your rubyforge_project name is different, then edit it and comment out
   ## the sub! line in the Rakefile
   s.name              = 'newrelic_pivpn_agent'
-  s.version           = '0.0.3'
+  s.version           = '0.0.4'
   s.date              = '2017-11-14'
   # s.rubyforge_project = 'newrelic_pivpn_agent'
 
   ## Make sure your summary is short. The description may be as long
   ## as you like.
-  s.summary     = "New Relic openvpn monitoring plugin"
+  s.summary     = "New Relic piVPN (openVPN) monitoring plugin"
   s.description = <<-EOF
-This is the New Relic plugin for monitoring OpenVPN developed by KangaCoders Ltd.
+New Relic plugin for monitoring piVPN, based on newrelic_openvpn_agent developed by KangaCoders Ltd.
   EOF
 
   ## List the primary authors. If there are a bunch of authors, it's probably
