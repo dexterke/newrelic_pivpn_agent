@@ -11,7 +11,7 @@ require "newrelic_plugin"
 module NewRelicOpenvpnAgent
   class Agent < NewRelic::Plugin::Agent::Base
     agent_guid "home.secretnet.secretlab.pivpn"
-    agent_version "0.0.2"
+    agent_version "0.0.5"
     agent_config_options :openvpn_status_path
     agent_human_labels("piVPN Agent") { ident }
 
@@ -34,13 +34,23 @@ module NewRelicOpenvpnAgent
     end
 
     def metric(_type)
-      metrics = {
-	:total_users => ["Total/Users", "Users", lambda{get_columns(ovpn_cmd, 1) }],
-        :total_bytes_received => ["Total/Bytes/Received", "bytes", lambda{ get_columns(ovpn_cmd, 4, false, false).inject(0){|_t, _b| (_t + _b.to_i) } }],
-        :total_bytes_sent => ["Total/Bytes/Sent", "bytes", lambda{ get_columns(ovpn_cmd, 5, false, false).inject(0){|_t, _b| (_t + _b.to_i) } }],
-        :average_bytes_received => ["Average/Bytes/Received", "bytes", lambda{ x = get_columns(ovpn_cmd, 4, false, false); x.inject(0){|_t, _b| (_t + _b.to_i) } / x.length }],
-        :average_bytes_sent => ["Average/Bytes/Sent", "bytes", lambda{ x = get_columns(ovpn_cmd, 5, false, false); x.inject(0){|_t, _b| (_t + _b.to_i) } / x.length }]
-      }
+      if get_columns(ovpn_cmd, 1) > 0
+	metrics = {
+	  :total_users => ["Total/Users", "Users", lambda{get_columns(ovpn_cmd, 1) }],
+	  :total_bytes_received => ["Total/Bytes/Received", "bytes", lambda{ get_columns(ovpn_cmd, 4, false, false).inject(0){|_t, _b| (_t + _b.to_i) } }],
+	  :total_bytes_sent => ["Total/Bytes/Sent", "bytes", lambda{ get_columns(ovpn_cmd, 5, false, false).inject(0){|_t, _b| (_t + _b.to_i) } }],
+	  :average_bytes_received => ["Average/Bytes/Received", "bytes", lambda{ x = get_columns(ovpn_cmd, 4, false, false); x.inject(0){|_t, _b| (_t + _b.to_i) } / x.length }],
+	  :average_bytes_sent => ["Average/Bytes/Sent", "bytes", lambda{ x = get_columns(ovpn_cmd, 5, false, false); x.inject(0){|_t, _b| (_t + _b.to_i) } / x.length }]
+	}
+      else
+	metrics = {
+		:total_users => ["Total/Users", "Users", lambda{0}],
+		:total_bytes_received => ["Total/Bytes/Received", "bytes", lambda{0}],
+		:total_bytes_sent => ["Total/Bytes/Sent", "bytes", lambda{0}],
+		:average_bytes_received => ["Average/Bytes/Received", "bytes", lambda{0}],
+		:average_bytes_sent => ["Average/Bytes/Sent", "bytes", lambda{0}]
+	}
+      end
       metrics[_type]
     end
 

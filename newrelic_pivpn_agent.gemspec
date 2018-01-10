@@ -13,8 +13,8 @@ Gem::Specification.new do |s|
   ## If your rubyforge_project name is different, then edit it and comment out
   ## the sub! line in the Rakefile
   s.name              = 'newrelic_pivpn_agent'
-  s.version           = '0.0.4'
-  s.date              = '2017-11-14'
+  s.version           = '0.0.5'
+  s.date              = '2018-01-11'
   # s.rubyforge_project = 'newrelic_pivpn_agent'
 
   ## Make sure your summary is short. The description may be as long
